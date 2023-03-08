@@ -11,6 +11,9 @@ class ToppingsController(val service: ToppingsService) {
     @GetMapping
     fun get(): List<ToppingCount> = service.getToppings()
 
+    @GetMapping("/chip")
+    fun getMyFavorite(): List<String> = listOf("pepperoni", "bacon", "sausage")
+
     @PostMapping
     fun post(@RequestBody toppings: CustomerToppings) = service.saveToppings(toppings)
 }
